@@ -1,0 +1,56 @@
+using System;
+
+namespace PracticaPoo
+{
+    class mostrarVehiculo
+    {
+        static void Main(string[] args)
+        {
+            Vehiculo v1 = new Vehiculo();
+            Vehiculo v2 = new Vehiculo();
+            string marca, modelo;
+
+            Console.WriteLine("Digite la Marca del 1er Vehículo: ");
+            Console.Write("--->");
+            marca = Console.ReadLine();
+            Console.WriteLine("Digite el Modelo: ");
+            Console.Write("--->");
+            modelo = Console.ReadLine();
+            v1.SetVehiculo(marca, modelo);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Digite la Marca del 2do Vehículo: ");
+            Console.Write("--->");
+            marca = Console.ReadLine();
+            Console.WriteLine("Digite el Modelo: ");
+            Console.Write("--->");
+            modelo = Console.ReadLine();
+            v2.SetVehiculo(marca, modelo);
+            
+            Console.WriteLine();
+            v1.verVehiculo();
+            v2.verVehiculo();
+
+            Console.ReadKey();
+
+        }
+    }
+    class  Vehiculo
+    {
+        public string Marca;
+        public string Modelo;
+
+        public void SetVehiculo(string marca, string modelo)
+        {
+            Marca = marca;
+            Modelo = modelo; 
+
+        }
+        public void verVehiculo()
+        {
+            Console.WriteLine("El vehiculo es: {0} {1}", Marca, Modelo);
+        }
+
+    }
+}
