@@ -1,0 +1,195 @@
+using System;
+
+
+namespace POO_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int op;
+            bool entrada = false;
+            do
+            {
+                APARTAMENTO local1 = new APARTAMENTO();
+
+                Console.Clear();
+                Console.WriteLine("[1] Agregar apartamento");
+                Console.WriteLine("[2] Vender apartamento");
+                Console.WriteLine("[3] Alquilar apartamento");
+                Console.WriteLine("[4] salir");
+                Console.WriteLine();
+                Console.Write("->");
+                op = int.Parse(Console.ReadLine());
+            
+                switch (op)
+                {
+                    case 1:
+                        Console.WriteLine("-------------AGREGADO DATOS-------------");
+                        Console.WriteLine("Agregar Direccion:");
+                        local1.Dirección = Console.ReadLine();
+                        Console.WriteLine("Agregar el color:");
+                        local1.Color = Console.ReadLine();
+                        Console.WriteLine("Agregar Area:");
+                        local1.Area = Console.ReadLine();
+                        Console.WriteLine("Agregar Construcción:");
+                        local1.Construcción = Console.ReadLine();
+                        Console.WriteLine("Agregar pargueos:");
+                        local1.Parqueos = Console.ReadLine();
+                        Console.WriteLine("Agregar habitaciones:");
+                        local1.Habitaciones = Console.ReadLine();
+                        Console.WriteLine("Agregar baños:");
+                        local1.Baños = Console.ReadLine();
+                        break;
+                    case 2:
+                        APARTAMENTO.VENDER();
+                        break;
+                    case 3:
+                        APARTAMENTO.ALQUILAR();
+                        break;
+                    case 4:
+                        Console.WriteLine();
+                        Console.WriteLine("Adios....Bye");
+                        entrada = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opcion erronea...");
+                        break;
+                }
+            } while (entrada == false);
+
+            Console.ReadKey();
+        }
+    }
+    class APARTAMENTO
+    {
+        static string resp;
+
+        static private string dirección;
+        static private string color;
+        static private string area;
+        static private string construcción;
+        static private string parqueos;
+        static private string habitaciones;
+        static private string baños;
+
+
+        public string Dirección { get => dirección; set => dirección = value; }
+        public string Color { get => color; set => color = value; }
+        public string Area { get => area; set => area = value; }
+        public string Construcción { get => construcción; set => construcción = value; }
+        public string Parqueos { get => parqueos; set => parqueos = value; }
+        public string Habitaciones { get => habitaciones; set => habitaciones = value; }
+        public string Baños { get => baños; set => baños = value; }
+
+
+        public static void VENDER()
+        {
+            Console.WriteLine("-----Las caracteristica de su apartamento son----- ");
+            Console.WriteLine(dirección);
+            Console.WriteLine("-----");
+            Console.WriteLine(color);
+            Console.WriteLine("----- ");
+            Console.WriteLine(area);
+            Console.WriteLine("----- ");
+            Console.WriteLine(construcción);
+            Console.WriteLine("-----");
+            Console.WriteLine(parqueos);
+            Console.WriteLine("-----");
+            Console.WriteLine(habitaciones);
+            Console.WriteLine("-----");
+            Console.WriteLine(baños);
+
+            Console.WriteLine();
+            Console.WriteLine("Seguro de venderlo?");
+            Console.WriteLine("s/n");
+            Console.Write("->");
+            resp = Console.ReadLine();
+            switch (resp)
+            {
+                case "s":
+                    Console.WriteLine();
+
+                    dirección = "";
+                    color = "";
+                    area = "";
+                    construcción = "";
+                    parqueos = "";
+                    habitaciones = "";
+                    baños = "";
+                    
+                    Console.WriteLine();
+                    Console.WriteLine("------------------------------------------------------------------------");
+                    Console.WriteLine("------------Usted ya a vendido o ya alquilado un apartamento------------");
+                    Console.WriteLine("------------------------------------------------------------------------");
+                    
+                    Console.ReadKey();
+                    break;
+                case "n":
+                    Console.WriteLine();
+                    Console.WriteLine("De acuerdo, no lo venderemos :)");
+                    Console.ReadKey();
+                    break;
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("ingreso erroneo...");
+                    Console.ReadKey();
+                    break;
+            }
+        }
+        public static void ALQUILAR()
+        {
+            Console.WriteLine("-----Las caracteristica de su apartamento son----- ");
+            Console.WriteLine(dirección);
+            Console.WriteLine("-----");
+            Console.WriteLine(color);
+            Console.WriteLine("----- ");
+            Console.WriteLine(area);
+            Console.WriteLine("----- ");
+            Console.WriteLine(construcción);
+            Console.WriteLine("-----");
+            Console.WriteLine(parqueos);
+            Console.WriteLine("-----");
+            Console.WriteLine(habitaciones);
+            Console.WriteLine("-----");
+            Console.WriteLine(baños);
+
+            Console.WriteLine();
+            Console.WriteLine("Seguro de alquilarlo?");
+            Console.WriteLine("s/n");
+            Console.Write("->");
+            resp = Console.ReadLine();
+            switch (resp)
+            {
+                case "s":
+                    dirección = "";
+                    color = "";
+                    area = "";
+                    construcción = "";
+                    parqueos = "";
+                    habitaciones = "";
+                    baños = "";
+                    
+                    Console.WriteLine();
+                    Console.WriteLine("------------------------------------------------------------------------");
+                    Console.WriteLine("------------Usted ya a vendido o ya alquilado un apartamento------------");
+                    Console.WriteLine("------------------------------------------------------------------------");
+                    
+
+                    Console.WriteLine();
+
+                    Console.ReadKey();
+                    break;
+                case "n":
+                    Console.WriteLine();
+                    Console.WriteLine("De acuerdo, no lo alquilaremos :)");
+                    Console.ReadKey();
+                    break;
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("ingreso erroneo...");
+                    Console.ReadKey();
+                    break;
+            }
+        }
+    }
